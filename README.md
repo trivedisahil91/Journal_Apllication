@@ -25,8 +25,7 @@ This is a full-stack **Spring Boot** based Journal Application that allows users
 - Logback (for logging)
 - **MongoDB** (via Spring Data MongoDB)
 - Maven
-- Git & GitHub
--**Postman** (for API testing)
+- **Postman** (for API testing)
 
 ---
 
