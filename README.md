@@ -22,8 +22,8 @@ This is a full-stack **Spring Boot** based Journal Application that allows users
 - Java 17
 - Spring Boot
 - Spring Security
-- Spring Data JPA
-- H2 / MySQL Database (configurable)
+- Logback (for logging)
+- **MongoDB** (via Spring Data MongoDB)
 - Maven
 - Git & GitHub
 -**Postman** (for API testing)
