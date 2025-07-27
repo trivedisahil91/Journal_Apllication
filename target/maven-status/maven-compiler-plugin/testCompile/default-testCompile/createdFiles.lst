@@ -1,0 +1,4 @@
+com\example\demo\service\UserArgumentProvider.class
+com\example\demo\service\UserDetailsServiceImplTest.class
+com\example\demo\JournalApplicationTest.class
+com\example\demo\service\UserServiceTests.class
