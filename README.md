@@ -55,8 +55,20 @@ src/
 
 ````
 
----
+## ☁️ MongoDB Atlas Configuration
 
+In `application.yml` or `application-dev.yml`, the MongoDB URI is set from **MongoDB Atlas**:
+
+```yaml
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://<username>:<password>@<cluster>.mongodb.net/journaldb?retryWrites=true&w=majority
+```
+
+> ⚠️ Replace `<username>`, `<password>`, and `<cluster>` with your actual MongoDB Atlas credentials.
+
+---
 ## ⚙️ Setup & Run
 
 ### 🔧 Prerequisites
