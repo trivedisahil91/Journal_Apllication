@@ -55,6 +55,7 @@ src/
 
 ````
 
+---
 ## ☁️ MongoDB Atlas Configuration
 
 In `application.yml` or `application-dev.yml`, the MongoDB URI is set from **MongoDB Atlas**:
@@ -75,6 +76,7 @@ spring:
 - Java 17+
 - Maven
 - Git
+  
 
 ### ▶️ Run the app
 ```bash
@@ -87,6 +89,8 @@ App will start on:
 📍 `http://localhost:8080`
 
 ---
+
+
 
 
 🧪 API Testing with Postman
