@@ -90,9 +90,6 @@ App will start on:
 
 ---
 
-
-
-
 🧪 API Testing with Postman
 All RESTful endpoints (User Registration, Login, Journal CRUD) have been tested using Postman.
 You can import a .postman_collection.json file (if available) for quick testing.
@@ -110,3 +107,12 @@ Typical endpoints:
   -> PUT /api/journal/{id}
 
   -> DELETE /api/journal/{id}
+
+---
+## 👤 Author
+
+**Sahil Trivedi**
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/trivedi-sahil-5212002b0)
+
+---
+
