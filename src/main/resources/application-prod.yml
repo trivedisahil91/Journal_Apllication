@@ -1,8 +1,9 @@
 spring:
   data:
     mongodb:
-      uri: ${MONGO_PUBLIC_URL}/journaldb
+      uri: mongodb://mongo:tqkVucRmmlofwwKvuRcygPFvhfwNDMRt@crossover.proxy.rlwy.net:53586/journaldb
       auto-index-creation: true
 
 server:
   port: ${PORT:8080}
+
