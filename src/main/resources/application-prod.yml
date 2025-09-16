@@ -1,12 +1,13 @@
 spring:
   data:
     mongodb:
-      uri: ${MONGO_PUBLIC_UR}
+      uri: ${MONGO_PUBLIC_URL}
       database: journaldb
       auto-index-creation: true
 
 
 server:
   port: ${PORT:8080}
+
 
 
