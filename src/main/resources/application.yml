@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
 
 #logging:
 #  level:
@@ -9,5 +9,6 @@ spring:
 #        demo: INFO
 #  file:
 #    name: logs-file/myapp.log
+
 
 
