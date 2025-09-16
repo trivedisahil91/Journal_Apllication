@@ -1,14 +1,3 @@
 spring:
   profiles:
     active: prod
-
-#logging:
-#  level:
-#    com:
-#      example:
-#        demo: INFO
-#  file:
-#    name: logs-file/myapp.log
-
-
-
