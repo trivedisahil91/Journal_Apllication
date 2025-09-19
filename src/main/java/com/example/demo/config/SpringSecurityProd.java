@@ -34,11 +34,15 @@ public class SpringSecurityProd extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    auth.inMemoryAuthentication()
+        .withUser("admin")
+        .password(passwordEncoder().encode("admin123"))
+        .roles("USER");
 
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-
-    }
+    // keep your existing userDetailsService too
+    auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+}
 
 
     @Bean
@@ -47,3 +51,4 @@ public class SpringSecurityProd extends WebSecurityConfigurerAdapter {
     }
 
 }
+
