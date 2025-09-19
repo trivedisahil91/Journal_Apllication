@@ -4,5 +4,10 @@ spring:
       uri: mongodb://mongo:tqkVucRmmlofwwKvuRcygPFvhfwNDMRt@crossover.proxy.rlwy.net:53586/journaldb?authSource=admin
       auto-index-creation: true
 
+  security:
+    user:
+      name: admin        
+      password: admin91
+
 server:
   port: ${PORT:8080}
