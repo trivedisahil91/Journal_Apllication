@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthCheak {
 
-    @GetMapping("/ok")
+    @GetMapping("/")
     public String healthCheak(){
-        return "health";
+        return "App is Runnig.Devloped By Sahil Trivedi";
     }
 
 }
+
