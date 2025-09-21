@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HealthCheak {
 
-    @GetMapping("/")
+    @GetMapping("/health")
     public String healthCheak(){
         return "App is Runnig.Devloped By Sahil Trivedi";
     }
+    @GetMapping("/")
+    public String redirectToSwagger() {
+        // Redirect to swagger-ui
+        return "redirect:/swagger-ui/index.html";
+    }
 
 }
+
 
