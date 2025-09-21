@@ -53,6 +53,15 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+         
+<!--        springdoc dependency-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.15</version> <!-- Spring Boot 2.x compatible last stable version -->
+        </dependency>
+
+
 
 
             <!-- ✅ Spring Web Dependency (REST + MVC + Tomcat) -->
@@ -92,3 +101,4 @@
     </build>
 
 </project>
+
