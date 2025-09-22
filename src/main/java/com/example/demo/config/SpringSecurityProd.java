@@ -21,43 +21,36 @@ public class SpringSecurityProd extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
-    private static final PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers("/", "/swagger-ui/**", "/v3/api-docs/**", "/health").permitAll()
-            .anyRequest().authenticated();
-        return http.build();
-    }
+    private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .httpBasic();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
+        http.csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/", "/swagger-ui/**", "/v3/api-docs/**", "/health").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .httpBasic();
+
+        http.sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
     @Override
-public void configure(AuthenticationManagerBuilder auth) throws Exception {
-    auth.inMemoryAuthentication()
-        .withUser("admin")
-        .password(passwordEncoder().encode("admin123"))
-        .roles("USER");
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // In-memory admin
+        auth.inMemoryAuthentication()
+            .withUser("admin")
+            .password(passwordEncoder().encode("admin123"))
+            .roles("USER");
 
-    // keep your existing userDetailsService too
-    auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-}
-
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        // Database users
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
-
-
