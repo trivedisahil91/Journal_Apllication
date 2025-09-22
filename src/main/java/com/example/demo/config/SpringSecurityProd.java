@@ -23,7 +23,15 @@ public class SpringSecurityProd extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsService;
     private static final PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
 
-
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .csrf().disable()
+            .authorizeRequests()
+            .antMatchers("/", "/swagger-ui/**", "/v3/api-docs/**", "/health").permitAll()
+            .anyRequest().authenticated();
+        return http.build();
+    }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -51,4 +59,5 @@ public void configure(AuthenticationManagerBuilder auth) throws Exception {
     }
 
 }
+
 
