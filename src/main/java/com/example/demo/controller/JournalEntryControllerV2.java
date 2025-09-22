@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal2")
+@Tag(name = "Journal APIs")
 public class JournalEntryControllerV2 {
 
     @Autowired
@@ -31,6 +32,7 @@ public class JournalEntryControllerV2 {
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/name")
+    @Operation(summary="Get All Entry Of User")
     public ResponseEntity<?> getAllEntriesOfUser(){
         Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
         String userName=authentication.getName();
@@ -46,7 +48,7 @@ public class JournalEntryControllerV2 {
     //update this method
 
 
-
+    @Operation(summary="Create a Entry")
     @PostMapping
     public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myentry){
         try {
@@ -65,6 +67,7 @@ public class JournalEntryControllerV2 {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("id/{id}")
+    @Operation(summary="Get All Entry By Id")
     public ResponseEntity<JournalEntry> getJournalEnteryById(@PathVariable ObjectId id){
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
         String userName=authentication.getName();
@@ -86,6 +89,7 @@ public class JournalEntryControllerV2 {
 
     //debuge this method also debug
     @PutMapping("/id/{id}")
+    @Operation(summary="Update Journal By Id")
     public ResponseEntity<JournalEntry> upadateJournalById(@PathVariable ObjectId id,
                                                            @RequestBody JournalEntry newentry)
     {
@@ -111,6 +115,7 @@ public class JournalEntryControllerV2 {
     }
 
     @DeleteMapping("/id/{id}")
+    @Operation(summary="Remove Journal By ID")
     public ResponseEntity<?> removedJournalEnteryById(@PathVariable ObjectId id){
         Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
         String userName=authentication.getName();
@@ -131,3 +136,4 @@ public class JournalEntryControllerV2 {
 
 
 }
+
