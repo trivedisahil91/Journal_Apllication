@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@Tag(name="User APIs")
 public class UserController {
 
     @Autowired
@@ -21,6 +22,7 @@ public class UserController {
 
 
     @PutMapping
+    @Operation(summary="Upadate User")
     public ResponseEntity<?> updateUser(@RequestBody User user){
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
         String userName=authentication.getName();
@@ -32,6 +34,7 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @DeleteMapping
+    @Operation(summary="Delete User By Id")
     public ResponseEntity<?> deleteUserById(){
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
         userRepositry.deleteByUserName(authentication.getName());
@@ -43,3 +46,4 @@ public class UserController {
 
 
 }
+
