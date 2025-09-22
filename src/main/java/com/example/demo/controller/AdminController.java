@@ -12,12 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
+@Tag(name="Admin APIs")
 public class AdminController {
 
     @Autowired
     private UserService userService;
 
     @GetMapping("/all-user")
+    @Operation(summary = "Get all Users")
     public ResponseEntity<?> getAllUser(){
         List<User> all=userService.getAll();
         if (all!=null && !all.isEmpty()){
@@ -32,3 +34,4 @@ public class AdminController {
         userService.saveNewAdmin(user);
     }
 }
+
