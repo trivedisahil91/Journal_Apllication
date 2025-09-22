@@ -22,8 +22,6 @@ public class SpringSecurityProd extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -39,13 +37,11 @@ public class SpringSecurityProd extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // In-memory admin
         auth.inMemoryAuthentication()
             .withUser("admin")
             .password(passwordEncoder().encode("admin123"))
             .roles("USER");
 
-        // Database users
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
