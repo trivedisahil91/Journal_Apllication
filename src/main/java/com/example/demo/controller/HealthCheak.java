@@ -15,10 +15,11 @@ public class HealthCheak {
     @GetMapping("/")
     public String redirectToSwagger() {
         // Redirect to swagger-ui
-        return "redirect:/swagger-ui/index.html";
+        return "Devloped by Sahil Trivedi :-"+"<a href='/swagger-ui/index.html'>Go to Swagger UI</a>";
     }
 
 }
+
 
 
 
